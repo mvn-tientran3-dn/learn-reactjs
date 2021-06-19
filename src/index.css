@@ -86,3 +86,23 @@ footer h3 {
   color: #090909;
   padding-top: 20px;
 }
+
+table {
+  width: 60%;
+  text-align: left;
+  margin: 30px auto;
+}
+
+.logo-item {
+  height: 50px;
+  width: 50px;
+  display: block;
+  float: left;
+  border-radius: 30%;
+  padding: 15px;
+  margin: 10px;
+}
+
+.content-item {
+  margin: 10px 10px 10px 20px;
+}
