@@ -1,12 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
+import FormComponent from "./FormComponent";
 
 class MainComponent extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
+    onRemove = (id, users) => {
+        let index = users.findIndex(obj => obj.id === id);
+
+        if (index >= 0) {
+            users.splice(index, 1);
+            this.setState({'users': users});
+        }
+    }
+
     render() {
         return (
             <div className="main">
-                <img src={logo} className="App-logo" alt="logo" />
-                <h2>Hello react !</h2>
+               <FormComponent onRemove={this.onRemove}/>
             </div>
         )
     }
