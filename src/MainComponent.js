@@ -6,19 +6,10 @@ class MainComponent extends React.Component {
         super(props);
     }
 
-    onRemove = (id, users) => {
-        let index = users.findIndex(obj => obj.id === id);
-
-        if (index >= 0) {
-            users.splice(index, 1);
-            this.setState({'users': users});
-        }
-    }
-
     render() {
         return (
             <div className="main">
-               <FormComponent onRemove={this.onRemove}/>
+               <FormComponent/>
             </div>
         )
     }

@@ -1,4 +1,5 @@
 import React from "react";
+import RowComponent from "./RowComponent";
 
 class FormComponent extends React.Component {
     constructor(props) {
@@ -40,31 +41,21 @@ class FormComponent extends React.Component {
                 users: [
                     ...prev.users,
                     user
-                ],
-                form: {
-                    email: '',
-                    password: '',
-                    info: ''
-                },
+                ]
             }));
         }
     }
 
-    deleteItem(id) {
-        this.props.onRemove(id, this.state.users);
+    handleRemove = (id) => {
+        const { users } = this.state;
+        const newUsers = users.filter(e => e.id !== id);
+        this.setState(prev => ({
+            users: newUsers
+        }));
     }
 
     render() {
         const {users} = this.state;
-            let element = users.map((item, index) => {
-                return <tr key={index}>
-                    <td colSpan={1}>{item.email}</td>
-                    <td colSpan={1}>{item.country !== 0 ? item.country : ''}</td>
-                    <td colSpan={1}>{item.gender ? 'Male' : 'Female'}</td>
-                    <td colSpan={1}>{item.info}</td>
-                    <td><span onClick={() => this.deleteItem(item.id)}><i className="material-icons">delete</i></span></td>
-                </tr>
-            });
 
         return <div>
             <form id="create-user-form">
@@ -135,8 +126,11 @@ class FormComponent extends React.Component {
                 </tr>
                 </thead>
                 <tbody>
-                {element.length > 0 && element}
-                {element.length === 0 && <tr><td colSpan="5">No result</td></tr>}
+                {
+                    users.map(e => (
+                        <RowComponent key={e.id} item={e} remove={this.handleRemove}/>
+                    ))
+                }
                 </tbody>
             </table>
         </div>
