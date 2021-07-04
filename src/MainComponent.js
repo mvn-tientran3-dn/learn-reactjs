@@ -1,5 +1,5 @@
 import React from 'react';
-import FormComponent from "./FormComponent";
+import Form from "./Form";
 
 class MainComponent extends React.Component {
     constructor(props) {
@@ -9,7 +9,7 @@ class MainComponent extends React.Component {
     render() {
         return (
             <div className="main">
-               <FormComponent/>
+               <Form/>
             </div>
         )
     }
