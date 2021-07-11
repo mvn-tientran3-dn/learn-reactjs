@@ -1,5 +1,6 @@
 body {
-  margin: 0;
+  margin: 0 auto;
+  width: 1200px;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -85,4 +86,42 @@ footer {
 footer h3 {
   color: #090909;
   padding-top: 20px;
+}
+
+.page-list {
+  margin-left: 30%;
+}
+
+.pagination {
+  display: inline-block;
+  width: 50%;
+  padding: 10px;
+}
+
+.active-page {
+  color: #ff1315;
+  font-weight: bold;
+}
+
+.pagination span {
+  text-align: center;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  background-color: #c7d4ff;
+  margin: 10px;
+}
+
+
+.content-table{
+  /*width: 100%;*/
+  /*margin: 0 auto;*/
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
 }
