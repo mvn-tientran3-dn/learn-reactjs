@@ -10,7 +10,7 @@ const ListComponent = () => {
         fetch(`https://reqres.in/api/users?page=${page}`).then(e => e.json())
             .then(e => {
                 setUser(e.data);
-                setPagination(e.total_pages);
+                setPagination({...pagination, ['total_pages']: e.total_pages});
             });
     }, [page]);
 
@@ -19,17 +19,16 @@ const ListComponent = () => {
     };
 
     const prevPage = () => {
-        if(page > 1) setPage(page - 1)
+        if (page > 1) setPage(Number(page) - 1);
     };
 
     const nextPage = () => {
-        if(page < pagination) setPage(page + 1)
+        if (page < pagination.total_pages) setPage(Number(page) + 1);
     };
-
-
+    
     let el = [];
-    for (let i = 1; i <= pagination; i++) {
-        el.push(<span key={i} id={i} className={page == i ? 'active-page' : ''} onClick={handlePageChange}>{i}</span>);
+    for (let i = 1; i <= pagination.total_pages; i++) {
+        el.push(<span key={i} id={i} className={Number(page) === i ? 'active-page' : ''} onClick={handlePageChange}>{i}</span>);
     }
 
     return (
