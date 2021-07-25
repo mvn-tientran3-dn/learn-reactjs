@@ -1,12 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
+import FormComponent from "./FormComponent";
 
 class MainComponent extends React.Component {
+    constructor(props) {
+        super(props);
+    }
+
     render() {
         return (
             <div className="main">
-                <img src={logo} className="App-logo" alt="logo" />
-                <h2>Hello react !</h2>
+               <FormComponent/>
             </div>
         )
     }
