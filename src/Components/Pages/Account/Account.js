@@ -1,5 +1,5 @@
-import React from 'react';
-import {useHistory} from "react-router-dom";
+import React, {Fragment} from 'react';
+import {useHistory} from 'react-router-dom';
 
 const Account = () => {
     const email = localStorage.getItem('authToken');
@@ -13,11 +13,13 @@ const Account = () => {
     }
 
     return (
-        <div>
-            <h2>Account page</h2>
-            <h3>Hello {name}</h3>
-            <input type="submit" value="Submit" onClick={onLogout}/>
-        </div>
+        <Fragment>
+            <div className="page">
+                <h2>Account page</h2>
+                <h3>Hello {name}</h3>
+                <input type="submit" value="Submit" onClick={onLogout}/>
+            </div>
+        </Fragment>
     )
 }
 

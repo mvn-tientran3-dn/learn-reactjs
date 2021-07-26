@@ -18,13 +18,15 @@ const Login = () => {
     const onSubmit = (event) => {
         event.preventDefault();
         let info = {...form};
-        localStorage.setItem('authToken', info.email);
-        history.push('/account');
+        if (info.email !== '' && info.password !== '') {
+            localStorage.setItem('authToken', info.email);
+            history.push('/account');
+        }
     }
 
     return (
-        <form id="create-user-form">
-            <h3>Register</h3>
+        <form id="login-form">
+            <h1>Login</h1>
             <div className="field-block">
                 <div><label>Email address</label></div>
                 <input type="email"
@@ -40,7 +42,7 @@ const Login = () => {
                        onChange={handleChange}
                 />
             </div>
-            <div>
+            <div className="field-block">
                 <input type="submit" value="Submit" onClick={onSubmit}/>
             </div>
         </form>

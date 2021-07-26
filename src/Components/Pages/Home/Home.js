@@ -1,8 +1,8 @@
-import React, {Fragment} from 'react';
+import React from 'react';
 
 function Home() {
     return (
-        <div>
+        <div className="page">
             <h2>Home Page</h2>
         </div>
     )

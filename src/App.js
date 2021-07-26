@@ -2,8 +2,8 @@ import './App.css';
 import React from 'react';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
 
-import HeaderComponent from './Components/Commons/HeaderComponent'
-import FooterComponent from './Components/Commons/FooterComponent';
+import HeaderComponent from './Components/Layouts/HeaderComponent'
+import FooterComponent from './Components/Layouts/FooterComponent';
 import Home from "./Components/Pages/Home/Home";
 import ProductList from "./Components/Pages/Product/ProductList";
 import Account from "./Components/Pages/Account/Account";
