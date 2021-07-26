@@ -1,5 +1,5 @@
-import React, {useState, Fragment} from "react";
-import {BrowserRouter as Router, Link, generatePath, Route} from "react-router-dom";
+import React, {useState} from "react";
+import {BrowserRouter as Router, NavLink, Route} from "react-router-dom";
 import ProductDetail from "./ProductDetail";
 
 function ProductList() {
@@ -20,7 +20,7 @@ function ProductList() {
     ]);
     const productDetail = products.map((product, index) => (
         <div key={index}>
-            <Link to={{ pathname: '/product/'+product.id}} key={product.id}>{product.name}</Link>
+            <NavLink exact activeClassName="active-class" to={{ pathname: '/product/'+product.id}} key={product.id}>{product.name}</NavLink>
         </div>
     ));
 

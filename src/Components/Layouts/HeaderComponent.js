@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from '../../images/1000.png';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
 const HeaderComponent = () => {
     return (
@@ -11,16 +11,16 @@ const HeaderComponent = () => {
             <nav>
                 <ul>
                     <li>
-                        <Link to="/">Home</Link>
+                        <NavLink exact activeStyle={{color: 'red'}} to="/">Home</NavLink>
                     </li>
                     <li>
-                        <Link to="/products">Product</Link>
+                        <NavLink activeStyle={{color: 'red'}} to="/products">Product</NavLink>
                     </li>
                     <li>
-                        <Link to="/account">Account</Link>
+                        <NavLink activeStyle={{color: 'red'}} to="/account">Account</NavLink>
                     </li>
                     <li>
-                        <Link to="/login">Login</Link>
+                        <NavLink activeStyle={{color: 'red'}} to="/login">Login</NavLink>
                     </li>
                 </ul>
             </nav>
