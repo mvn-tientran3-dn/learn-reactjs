@@ -6,7 +6,7 @@ function ProductDetail() {
 
     return (
         <Fragment>
-            detail {id}
+            detail product {id}
         </Fragment>
     )
 }

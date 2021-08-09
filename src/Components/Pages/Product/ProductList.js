@@ -1,6 +1,5 @@
 import React, {useState} from "react";
-import {BrowserRouter as Router, NavLink, Route} from "react-router-dom";
-import ProductDetail from "./ProductDetail";
+import {NavLink} from "react-router-dom";
 
 function ProductList() {
 
@@ -8,35 +7,36 @@ function ProductList() {
         {
             'name' : 'Product 1',
             'id' : 1,
+            'image': 'https://cdn140.picsart.com/80408675878191898490.jpg?type=webp&to=min&r=412&q=95'
         },
         {
             'name' : 'Product 2',
             'id' : 2,
+            'image': 'https://cdn140.picsart.com/80408675878191898490.jpg?type=webp&to=min&r=412&q=95'
         },
         {
             'name' : 'Product 3',
             'id' : 3,
+            'image': 'https://cdn140.picsart.com/80408675878191898490.jpg?type=webp&to=min&r=412&q=95'
         },
     ]);
     const productDetail = products.map((product, index) => (
-        <div key={index}>
-            <NavLink exact activeClassName="active-class" to={{ pathname: '/product/'+product.id}} key={product.id}>{product.name}</NavLink>
+        <div key={index} className="list-group">
+            <NavLink activeClassName="active-class" to={{ pathname: '/products/'+product.id}} key={product.id}>
+                <div className="product">
+                    <img src={product.image} className="img-product" />
+                    <div className="product-body">
+                        <h5 className="product-title">{product.name}</h5>
+                    </div>
+                </div>
+            </NavLink>
         </div>
     ));
 
     return (
         <div className="page">
             <h1>Product page</h1>
-            <div className="list-group">
-                <Router>
-                    <div className="block-left">
-                        {productDetail}
-                    </div>
-                    <div className="block-right">
-                        <Route path="/product/:id" component={ProductDetail}/>
-                    </div>
-                </Router>
-            </div>
+            {productDetail}
         </div>
     )
 }

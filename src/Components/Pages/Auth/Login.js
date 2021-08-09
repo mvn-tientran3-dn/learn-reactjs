@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
 import {useHistory} from 'react-router-dom';
+import {useDispatch} from "react-redux";
+import {login} from "../../../feature/userSlice";
 
 const Login = () => {
     const [form, setForm] = useState({
@@ -7,6 +9,7 @@ const Login = () => {
         password: '',
     });
     const history = useHistory();
+    const dispatch = useDispatch();
 
     const handleChange = (e) => {
         const target = e.target;
@@ -19,8 +22,11 @@ const Login = () => {
         event.preventDefault();
         let info = {...form};
         if (info.email !== '' && info.password !== '') {
-            localStorage.setItem('authToken', info.email);
-            history.push('/account');
+            dispatch(login({
+                email: info.email,
+                password: info.password,
+            }));
+            history.push('/');
         }
     }
 
