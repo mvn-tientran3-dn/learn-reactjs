@@ -1,6 +1,9 @@
 import './App.css';
 import React, {lazy, Suspense} from 'react';
 import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import {useSelector} from 'react-redux';
+import {selectUser} from './feature/userSlice';
+
 
 import HeaderComponent from './Components/Layouts/HeaderComponent'
 import FooterComponent from './Components/Layouts/FooterComponent';
@@ -38,14 +41,15 @@ const routes = [
 ];
 
 function App() {
+  const user = useSelector(selectUser);
   return (
     <Router>
-      <HeaderComponent/>
+        <HeaderComponent/>
         <div className="container">
             <Suspense fallback={<div>Loading ...</div>}>
-            <Switch>
+                <Switch>
                 {routes.map((route, i) => {
-                    if (route.path === '/account') {
+                    if (route.path === '/account' && user !== '') {
                         return <PrivateRouter key={i} path={route.path} component={Account}/>
                     }
                     return <Route

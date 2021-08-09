@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 function ProductList() {
 
@@ -22,14 +22,14 @@ function ProductList() {
     ]);
     const productDetail = products.map((product, index) => (
         <div key={index} className="list-group">
-            <Link activeClassName="active-class" to={{ pathname: '/products/'+product.id}} key={product.id}>
+            <NavLink activeClassName="active-class" to={{ pathname: '/products/'+product.id}} key={product.id}>
                 <div className="product">
                     <img src={product.image} className="img-product" />
                     <div className="product-body">
                         <h5 className="product-title">{product.name}</h5>
                     </div>
                 </div>
-            </Link>
+            </NavLink>
         </div>
     ));
 
