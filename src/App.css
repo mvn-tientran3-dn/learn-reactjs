@@ -92,9 +92,14 @@
 }
 
 .list-group {
-  display: flex;
-  width: 100%;
+  display: inline-block;
+  width: 30%;
 }
+
+.img-product{
+  width: 90%;
+}
+
 .block-left{
   width: 50%;
 }

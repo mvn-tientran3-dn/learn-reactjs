@@ -17,7 +17,7 @@ const Account = () => {
             <div className="page">
                 <h2>Account page</h2>
                 <h3>Hello {name}</h3>
-                <input type="submit" value="Submit" onClick={onLogout}/>
+                <input type="submit" value="Logout" onClick={onLogout}/>
             </div>
         </Fragment>
     )
